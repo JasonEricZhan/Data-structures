@@ -77,7 +77,7 @@ void BST::Insert(int k) //iterative method
 }
 
 
-void BST::Delete(int k)
+void BST::Delete(int k) //iterative method
 {
     if(isEmpty())
     {
