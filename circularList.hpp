@@ -17,7 +17,7 @@
 
 
 template<class type,class type2,class type3>
-class circList:public chainList<type2>,stackList<type3>
+class circList:public chainQueue<type2>,stackList<type3>
 {
     //template<class T>
 public:
