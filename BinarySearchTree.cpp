@@ -77,7 +77,7 @@ void BST::Insert(int k) //iterative method
 }
 
 
-void BST::Delete(int k) //iterative method
+void BST::Delete(int k)
 {
     if(isEmpty())
     {
@@ -108,45 +108,35 @@ void BST::Delete(int k) //iterative method
             TreeNode<int> *tempRoot=currNode;
             if(currNode->leftChild)
             {   currNode=currNode->leftChild;
-                while(currNode->rightChild)
-                { prev=currNode;currNode=currNode->rightChild;}
+                while(currNode->rightChild){ prev=currNode;currNode=currNode->rightChild;}
             }
             else if(currNode->rightChild)
             {   currNode=currNode->rightChild;
-                while(currNode->leftChild)
-                { prev=currNode;currNode=currNode->leftChild;}
+                while(currNode->leftChild){ prev=currNode;currNode=currNode->leftChild;}
             }
             else
             {
-                if(prev->data > k)
-                {prev->leftChild=NULL;}
-                else
-                {prev->rightChild=NULL;}
-                delete currNode;currNode=NULL;NumOfNodes-- ;return; }
-            
+                if(prev->data > k){prev->leftChild=NULL;}
+                else{prev->rightChild=NULL;}
+                delete currNode;currNode=NULL;NumOfNodes-- ;return;
+            }
             if(!tempRoot->rightChild) //skew subtree
             {
-                if( prev->data < tempRoot->data )
-                { prev->rightChild=currNode; }
-                else
-                { prev->leftChild=currNode; }
+                if( prev->data < tempRoot->data ){ prev->rightChild=currNode; }
+                else{ prev->leftChild=currNode; }
             }
             else if(!tempRoot->leftChild)  //skew subtree
             {
-                if( prev->data < tempRoot->data )
-                { prev->rightChild=currNode; }
-                else
-                { prev->leftChild=currNode; }
+                if( prev->data < tempRoot->data ){ prev->rightChild=currNode; }
+                else{ prev->leftChild=currNode; }
             }
             else{
-                if(prev->data > k)
-                {prev->leftChild=NULL;}
-                else
-                {prev->rightChild=NULL;}
+                if(prev->data > k){prev->leftChild=NULL;}
+                else{prev->rightChild=NULL;}
             }
             tempRoot->data=currNode->data;
-            delete currNode;currNode=NULL;NumOfNodes--;return; } // when L equal to K case
-        
+            delete currNode;currNode=NULL;NumOfNodes--;return;
+        } // when L equal to K case
     }while(currNode);return;
 }
 
