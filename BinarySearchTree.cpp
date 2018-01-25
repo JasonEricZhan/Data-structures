@@ -106,16 +106,16 @@ void BST::Delete(int k)
         else
         {
             TreeNode<int> *tempRoot=currNode;
-            if(currNode->leftChild)
+            if(currNode->leftChild)//left subtree biggest
             {   currNode=currNode->leftChild;
                 while(currNode->rightChild){ prev=currNode;currNode=currNode->rightChild;}
             }
-            else if(currNode->rightChild)
+            else if(currNode->rightChild)//right subtree smallest
             {   currNode=currNode->rightChild;
                 while(currNode->leftChild){ prev=currNode;currNode=currNode->leftChild;}
             }
             else
-            {
+            {//no child condition
                 if(prev->data > k){prev->leftChild=NULL;}
                 else{prev->rightChild=NULL;}
                 delete currNode;currNode=NULL;NumOfNodes-- ;return;
