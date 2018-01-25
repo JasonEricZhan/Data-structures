@@ -34,7 +34,7 @@ void BST::Inorder(TreeNode<int> *Node)
 }
 
 
-void BST::Insert(int k)
+void BST::Insert(int k) //iterative method
 {
     if(isEmpty())
     {
@@ -52,16 +52,11 @@ void BST::Insert(int k)
             currNode=currNode->rightChild; //traverse to right
             if(!currNode){
                 TreeNode<int> *NewNode=new TreeNode<int>;
-                
                 temp->rightChild=NewNode;
                 NewNode->data=k;NewNode->leftChild=NewNode->rightChild=NULL;
                 NumOfNodes++;
                 return ;}
-            else{
-                
-                rootValue=currNode->data;
-            }
-            
+            else{   rootValue=currNode->data;}
         }
         else if(k < rootValue)
         {
@@ -73,10 +68,7 @@ void BST::Insert(int k)
                 NewNode->data=k;NewNode->leftChild=NewNode->rightChild=NULL;
                 NumOfNodes++;
                 return; }
-            else{
-                rootValue=currNode->data;
-                
-            }
+            else{  rootValue=currNode->data;}
         }
         else
         {   cout<<"already in the tree"<<endl; return; } // when L equal to K case
@@ -85,7 +77,7 @@ void BST::Insert(int k)
 }
 
 
-void BST::Delete(int k)
+void BST::Delete(int k) //iterative method
 {
     if(isEmpty())
     {
