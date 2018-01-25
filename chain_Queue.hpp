@@ -6,8 +6,8 @@
 //  Copyright © 2017年 Eric. All rights reserved.
 //
 
-#ifndef chain_list_hpp
-#define chain_list_hpp
+#ifndef chain_Queue_hpp
+#define chain_Queue_hpp
 
 //#include <stdio.h>
 #include <iostream>
@@ -44,9 +44,9 @@ class chainQueue
     //template<class T>
 public:
     //friend class chainNode;
-    chainList(){};
+    chainQueue(){};
     //template<class type>
-    chainList(type data):capacity(data){
+    chainQueue(type data):capacity(data){
         Node<type> *link=new Node<type>;
         link->value=data;
         head=link;
