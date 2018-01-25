@@ -39,7 +39,7 @@ struct Node
 
 
 template<class type>
-class chainList
+class chainQueue
 {
     //template<class T>
 public:
