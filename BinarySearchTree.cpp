@@ -120,12 +120,12 @@ void BST::Delete(int k) //iterative method
                 else{prev->rightChild=NULL;}
                 delete currNode;currNode=NULL;NumOfNodes-- ;return;
             }
-            if(!tempRoot->rightChild) //skew subtree
+            if(!tempRoot->rightChild) //no right subtree
             {
                 if( prev->data < tempRoot->data ){ prev->rightChild=currNode; }
                 else{ prev->leftChild=currNode; }
             }
-            else if(!tempRoot->leftChild)  //skew subtree
+            else if(!tempRoot->leftChild)  //no left subtree
             {
                 if( prev->data < tempRoot->data ){ prev->rightChild=currNode; }
                 else{ prev->leftChild=currNode; }
