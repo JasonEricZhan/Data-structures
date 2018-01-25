@@ -2,7 +2,7 @@
 //  BinarySearchTree.cpp
 //  Trees
 //
-//  Created by Eric on 2017/12/10.
+//  Created by Eric on 2017/12/20.
 //  Copyright © 2017年 Eric. All rights reserved.
 //
 
@@ -85,7 +85,6 @@ void BST::Insert(int k)
 }
 
 
-
 void BST::Delete(int k)
 {
     if(isEmpty())
@@ -116,20 +115,14 @@ void BST::Delete(int k)
         {
             TreeNode<int> *tempRoot=currNode;
             if(currNode->leftChild)
-            {   cout<<"xx1"<<endl;
-                currNode=currNode->leftChild;
-                cout<<currNode->data<<endl;
+            {   currNode=currNode->leftChild;
                 while(currNode->rightChild)
-                {   cout<<"xx1-1"<<endl;
-                    prev=currNode;currNode=currNode->rightChild;}
-                
+                { prev=currNode;currNode=currNode->rightChild;}
             }
             else if(currNode->rightChild)
-            {   cout<<"xxx"<<endl;
-                currNode=currNode->rightChild;
+            {   currNode=currNode->rightChild;
                 while(currNode->leftChild)
-                {prev=currNode;currNode=currNode->leftChild;}
-                
+                { prev=currNode;currNode=currNode->leftChild;}
             }
             else
             {
@@ -140,9 +133,19 @@ void BST::Delete(int k)
                 delete currNode;currNode=NULL;NumOfNodes-- ;return; }
             
             if(!tempRoot->rightChild) //skew subtree
-            {  prev->rightChild=currNode; }
+            {
+                if( prev->data < tempRoot->data )
+                { prev->rightChild=currNode; }
+                else
+                { prev->leftChild=currNode; }
+            }
             else if(!tempRoot->leftChild)  //skew subtree
-            {  prev->leftChild=currNode; }
+            {
+                if( prev->data < tempRoot->data )
+                { prev->rightChild=currNode; }
+                else
+                { prev->leftChild=currNode; }
+            }
             else{
                 if(prev->data > k)
                 {prev->leftChild=NULL;}
@@ -157,13 +160,7 @@ void BST::Delete(int k)
 
 
 
-
-
-
-
-
-
-int BST::Least_Bound(int k)
+int BST::Least_Bound(int k)//find the smallest number bigger than k
 {
     if(isEmpty())
     {
@@ -206,6 +203,7 @@ int BST::Least_Bound(int k)
 
 
 int BST::Least_Combined(int k,TreeNode<int> *m,TreeNode<int> *n)
+    //find the smallest sum of two number bigger than k
 {
     if(isEmpty())
     {
