@@ -1,5 +1,5 @@
 # Data-structures
-<font size="24">single link list and stack</font>
+<font size="24"></font>
 
 
-<b> Use struct and pointer in c to implement these </b>
+<b>  </b>
