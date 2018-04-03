@@ -200,22 +200,26 @@ int BST::Least_Combined(int k,TreeNode<int> *m,TreeNode<int> *n)
     
     int leftBound;int rightBound;int rootPtr=0;
     for(int i=0;i<NumOfNodes;i++)
-    { if(RootData()==InorderArr[i].data)
-    { rootPtr=i;break;}
+    { 
+        if(RootData()==InorderArr[i].data)
+        { rootPtr=i;break;}
     }
     if(k>InorderArr[0].data+InorderArr[1].data)
-    { if(rootPtr+2<=NumOfNodes-1)
-    {   if(InorderArr[rootPtr+1].data+InorderArr[rootPtr+2].data >=k)
-    {leftBound=0;rightBound=rootPtr+2;}
-    else if(InorderArr[rootPtr-1].data+InorderArr[rootPtr].data >=k)
-    {leftBound=0;rightBound=rootPtr;}
-    else
-    {leftBound=0;rightBound=NumOfNodes;}
+    { 
+       if(rootPtr+2<=NumOfNodes-1)
+       {   
+            if(InorderArr[rootPtr+1].data+InorderArr[rootPtr+2].data >=k)
+            {leftBound=0;rightBound=rootPtr+2;}
+            else if(InorderArr[rootPtr-1].data+InorderArr[rootPtr].data >=k)
+            {leftBound=0;rightBound=rootPtr;}
+            else
+            {leftBound=0;rightBound=NumOfNodes;}
+        }
+        else
+        {leftBound=0;rightBound=NumOfNodes;}
     }
-    else
-    {leftBound=0;rightBound=NumOfNodes;}
-    }
-    else{ *m=InorderArr[1];*n=InorderArr[0];
+    else{ 
+        *m=InorderArr[1];*n=InorderArr[0];
         return InorderArr[1].data+InorderArr[0].data;
     }
     int MIN_Sum=INT_MAX;int sum=0;
