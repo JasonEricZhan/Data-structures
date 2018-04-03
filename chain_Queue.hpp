@@ -51,8 +51,7 @@ public:
         link->value=data;
         head=link;
         link->next=0;
-        std::cout<<"xxx"<<capacity<<std::endl;
-        //std::cout<<"yyy"<<stackCapacity<<std::endl;
+
     };
     //template<class type>
     void insertFront(type data){
